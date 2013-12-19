@@ -6,6 +6,7 @@ gem 'rails', '4.0.0'
 # Use sqlite3 as the database for Active Record
 group :production do
   gem 'pg'
+  gem 'rails_12factor'
 end
 
 group :development do
@@ -13,7 +14,6 @@ group :development do
 end
 
 gem 'anjlab-bootstrap-rails', '~> 3.0.3.0', :require => 'bootstrap-rails'
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
