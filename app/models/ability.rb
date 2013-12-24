@@ -15,7 +15,7 @@ class Ability
     end
 
     if user.role? :admin
-        can :manage, :all?
+        can :manage, :all
     end
 
     can :read, :all

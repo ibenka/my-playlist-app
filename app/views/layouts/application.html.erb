@@ -30,6 +30,8 @@
         </div>
       <% end %>
 
+      Hello <%= current_user.name %>! <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+
       <%= yield %>
     </div>
   </body>
