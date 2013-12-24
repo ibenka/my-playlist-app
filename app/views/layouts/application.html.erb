@@ -29,9 +29,9 @@
           <%= flash[:alert] %>
         </div>
       <% end %>
-
-      <!--Hello <%= current_user.name %>! <%= #link_to {}"Sign out", destroy_user_session_path, method: :delete %>-->
-
+      <% if current_user %>
+      Hello <%= current_user.name %>! <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+      <% end %>
       <%= yield %>
     </div>
   </body>
