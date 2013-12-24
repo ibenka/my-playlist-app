@@ -23,6 +23,7 @@ gem 'newrelic_rpm' #User Authentication checkpoint Gemfile had this
 gem 'jquery-rails'
 gem 'faker'
 gem 'devise'
+gem 'cancan'
 
 #already here (assuming from Rails 4)
 gem 'turbolinks'
