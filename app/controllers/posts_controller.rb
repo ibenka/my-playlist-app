@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
 
   def show
-    @post = Post.find(params[:id])
     @topic = Topic.find(params[:topic_id])
+    @post = Post.find(params[:id])
   end
 
   def new
@@ -40,7 +40,7 @@ class PostsController < ApplicationController
     authorize! :create, @post, message: "You need to be signed up to do that."
     if @post.save
       flash[:notice] = "Post was saved."
-      redirect_to @post
+      redirect_to [@topic, @post]
     else
       flash[:notice] = "There was an error saving the post. Please try again."
       render :new
