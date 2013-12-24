@@ -5,8 +5,8 @@ class Ability
     user ||= User.new
 
     if user.role? :member
-        can :manage, Post, :user_id => user.id
-        can :manage, Comment, :user_id => user.id
+        can :manage, Post, user_id: user.id
+        can :manage, Comment, user_id: user.id
     end
 
     if user.role? :moderator

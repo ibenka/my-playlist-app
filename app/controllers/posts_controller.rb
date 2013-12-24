@@ -20,9 +20,6 @@ class PostsController < ApplicationController
   def update
     @topic = Topic.find(params[:topic_id])
     @post = Post.find(params[:id])
-    @post.topic = @topic
-    #We are assigning the topic to the post during the create method. 
-    #This means that we don't have to pass it in through the form.
     authorize! :update, @post, message: "You need to own the post to edit it."
     if @post.update_attributes(post_params)
       flash[:notice] = "Post was updated."
@@ -37,6 +34,9 @@ class PostsController < ApplicationController
     @topic = Topic.find(params[:topic_id])
     #@post = current_user.posts.build(params[:post])
     @post = current_user.posts.build(post_params)
+    @post.topic = @topic
+    #We are assigning the topic to the post during the create method. 
+    #This means that we don't have to pass it in through the form.
     authorize! :create, @post, message: "You need to be signed up to do that."
     if @post.save
       flash[:notice] = "Post was saved."
