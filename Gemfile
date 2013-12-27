@@ -24,6 +24,7 @@ gem 'jquery-rails'
 gem 'faker'
 gem 'devise'
 gem 'cancan'
+gem 'redcarpet'
 
 #already here (assuming from Rails 4)
 gem 'turbolinks'
