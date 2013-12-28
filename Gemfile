@@ -29,6 +29,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
 gem 'figaro'
+gem 'will_paginate', '~>3.0'
 
 #already here (assuming from Rails 4)
 gem 'turbolinks'
