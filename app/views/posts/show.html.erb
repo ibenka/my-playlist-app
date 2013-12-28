@@ -9,10 +9,17 @@
     </small>
     <p><%= image_tag(@post.image.url) if @post.image? %></p>
     <p><%= markdown @post.body %></p>
-  </div>
-  <div class="span4">
     <% if can? :edit, @post %>
     <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-mini' %>
+    <% end %>
+  </div>
+  <div class="span4">
+    <h4> Comments </h4>
+    <%= render partial: "comment", collection: @post.comments %>
+  </div>
+  <div class="span4">
+    <% if can? :comment, @comment %>
+    <%= render partial: "comments/form", locals: { topic: @topic, post: @post, comment: @comment } %>
     <% end %>
   </div>
 </div>

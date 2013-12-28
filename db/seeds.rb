@@ -1,7 +1,7 @@
 require 'faker'
 
 topics = []
-  155.times do
+  15.times do
     topics << Topic.create(
       name: Faker::Lorem.words(rand(1..10)).join(" "),
       description: Faker::Lorem.paragraph(rand(1..4))
@@ -32,20 +32,12 @@ rand(4..10).times do
 
     p.update_attribute(:created_at, Time.now - rand(600..31536000))
 
-    topics.rotate!
-  end
-
-  rand(5..12).times do
-    p = u.posts.create(
-      title: Faker::Lorem.words(rand(1..10)).join(" "), 
-      body: Faker::Lorem.paragraphs(rand(1..4)).join("\n"))
-    # set the created_at to a time within the past year
-    p.update_attribute(:created_at, Time.now - rand(600..31536000))
-
     rand(3..7).times do
       p.comments.create(
-        body: Faker::Lorem.paragraphs(rand(1..2)).join("\n"))
+        body: Faker::Lorem.paragraphs(rand(1..2)).join("\n"), user: u)
     end
+
+    topics.rotate!
   end
 end
 
