@@ -1,22 +1,22 @@
 class BootstrapLinkRenderer < WillPaginate::ActionView::LinkRenderer
   def html_container(html)
-    tag :div, tag(:ul, html), container_attributes
+    tag :div, tag(:b, html), container_attributes
   end
 
   def page_number(page)
-    tag :li, 
+    tag :b, 
       link(page, page, rel: rel_value(page)), 
       class: ('active' if page == current_page)
   end
-  
+
   def gap
-    tag :li, link(super, '#'), class: 'disabled'
+    tag :b, '...', class: 'disabled'
   end
 
   def previous_or_next_page(page, text, classname)
-    tag :li, link(text, page || '#')
+    tag :b, link(text, page || '#')
   end
-  
+
   def previous_page
     num = @collection.current_page > 1 && @collection.current_page - 1
     previous_or_next_page(num, '&laquo;', 'previous_page')
@@ -26,5 +26,4 @@ class BootstrapLinkRenderer < WillPaginate::ActionView::LinkRenderer
     num = @collection.current_page < total_pages && @collection.current_page + 1
     previous_or_next_page(num, '&raquo;', 'next_page')
   end
-
 end
