@@ -14,6 +14,7 @@ class Ability
         can :update, Post, user_id: user.id
         can :destroy, Comment, user_id: user.id
         can :destroy, Post, user_id: user.id
+        can :create, Vote
     end
 
     if user.role? :moderator

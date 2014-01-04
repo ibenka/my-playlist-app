@@ -24,20 +24,19 @@ rand(4..10).times do
   # to avoid sending an email. The `save` method updates the database.
 
   rand(5..12).times do
-    topic = topics.first
-    rand(3..7).times do 
+    topic = topics.first 
       p = u.posts.create(
         topic: topic,
         title: Faker::Lorem.words(rand(1..10)).join(" "),
         body: Faker::Lorem.paragraphs(rand(1..4)).join("\n"))
-
+      p.update_attribute(:created_at, Time.now - rand(600..31536000))
+      p.update_rank
       p.update_attribute(:created_at, Time.now - rand(600..31536000))
 
       rand(3..7).times do
         p.comments.create(
           body: Faker::Lorem.paragraphs(rand(1..2)).join("\n"), user: u)
       end
-    end
     topics.rotate!
   end
 end

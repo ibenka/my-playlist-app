@@ -61,6 +61,7 @@ class TopicsController < ApplicationController
   def topic_params
     params.require(:topic).permit(:name, :public, :description, 
                                   posts_attributes: [:title, :body, 
-                                  comments_attributes: [:body]])
+                                  comments_attributes: [:body], 
+                                  votes_attributes: [:value, :post_id]])
   end
 end
