@@ -1,6 +1,6 @@
 class BootstrapLinkRenderer < WillPaginate::ActionView::LinkRenderer
   def html_container(html)
-    tag :div, tag(:ul, html), class: 'pagination'
+    tag :div, tag(:ul, html, class: 'pagination')
   end
 
   def page_number(page)

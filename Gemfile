@@ -17,7 +17,7 @@ gem 'sass-rails', '~> 4.0.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 
-gem 'anjlab-bootstrap-rails', '~> 3.0.3.0', :require => 'bootstrap-rails'
+gem 'bootstrap-sass', '~> 3.0.3.0'
 
 gem 'newrelic_rpm' #User Authentication checkpoint Gemfile had this
 gem 'jquery-rails'
