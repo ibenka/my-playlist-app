@@ -24,5 +24,4 @@ module ApplicationHelper
     end
     super *[collection_or_options, options].compact
   end
-
 end

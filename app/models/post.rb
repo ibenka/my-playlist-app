@@ -7,7 +7,7 @@ class Post < ActiveRecord::Base
   default_scope order('rank DESC')
 
   after_create :create_vote
-  mount_uploader :image, ImageUploaderUploader
+  mount_uploader :image, ImageUploader
 
   def up_votes
     self.votes.where(value: 1).count

@@ -7,8 +7,6 @@
         submitted <%= time_ago_in_words(@post.created_at) %> ago by 
         <%= @post.user.name %>
     </small>
-    
-    <%= render partial: 'votes/voter', locals: { topic: @topic, post: @post } %>
 
     <p><%= image_tag(@post.image.url) if @post.image? %></p>
     <p><%= markdown @post.body %></p>
@@ -21,13 +19,14 @@
   </div>
 
   <div>
+    <%= render partial: 'votes/voter', locals: { topic: @topic, post: @post } %>
     <h3><%= pluralize(@post.points, 'point') %></h3>
     <small>
       <%= pluralize(@post.up_votes, 'up vote') %>, 
       <%= pluralize(@post.down_votes, 'down vote') %>
     </small>
   </div>
-
+  </br>
   <div class="span4">
     <h4> Comments </h4>
     <%= render partial: "comment", collection: @post.comments %>
