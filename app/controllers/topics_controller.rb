@@ -38,7 +38,7 @@ class TopicsController < ApplicationController
     if @topic.save
       redirect_to @topic, notice: "Topic was saved successfully."
     else
-      flash[:notice] = "There was an error saving the topic. Please try again."
+      flash[:error] = "There was an error saving the topic. Please try again."
       render :new
     end
   end

@@ -13,7 +13,7 @@
     <p class="lead"><%= @topic.description %></p>
     <div class="span4">
     <% if can? :create, Post %>
-      <%= link_to "New Post", new_topic_post_path(@topic,@post), class: 'btn btn-large' %>
+      <%= link_to "New Post", new_topic_post_path(@topic,@post), class: 'btn btn-info' %>
     <% end %>
     </div>
     <% @posts.each do |post| %>
