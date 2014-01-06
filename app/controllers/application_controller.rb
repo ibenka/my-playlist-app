@@ -4,9 +4,9 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) << [:name, :provider, :uid, :email_favorites]
-    devise_parameter_sanitizer.for(:sign_in) << [:provider, :uid, :email_favorites]
-    devise_parameter_sanitizer.for(:account_update) << [:name, :avatar, :provider, :uid, :email_favorites]
+    devise_parameter_sanitizer.for(:sign_up) << [:name, :provider, :uid, :email]
+    devise_parameter_sanitizer.for(:sign_in) << [:provider, :uid, :email]
+    devise_parameter_sanitizer.for(:account_update) << [:name, :avatar, :email]
   end
 
   # Prevent CSRF attacks by raising an exception.
@@ -15,5 +15,9 @@ class ApplicationController < ActionController::Base
   
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, alert: exception.message
+  end
+
+  def after_sign_in_path_for(resource)
+    topics_path
   end
 end
