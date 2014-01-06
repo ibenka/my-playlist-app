@@ -15,6 +15,8 @@ class Ability
         can :destroy, Comment, user_id: user.id
         can :destroy, Post, user_id: user.id
         can :create, Vote
+        can :create, Favorite, user_id: user.id
+        can :destroy, Favorite, user_id: user.id
     end
 
     if user.role? :moderator

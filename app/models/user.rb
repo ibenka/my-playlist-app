@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :comments
   has_many :votes, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   before_create :set_member
   accepts_nested_attributes_for :posts
   mount_uploader :avatar, AvatarUploader
@@ -11,6 +12,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, 
          :omniauthable, :omniauth_providers => [:facebook]
+
+  def favorited(post)
+    self.favorites.where(post_id: post.id).first
+  end
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
