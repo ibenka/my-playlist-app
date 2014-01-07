@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
       redirect_to [@topic, @post]
     else
       flash[:notice] = "There was an error saving the comment. Please try again."
-      render "posts/show"
+      render "topics/posts/show"
     end
   end
 

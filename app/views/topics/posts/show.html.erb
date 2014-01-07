@@ -30,7 +30,7 @@
   </br>
   <div class="span4">
     <h4> Comments </h4>
-    <%=  render(@post.comments)  || "There are no comments." %>
+    <%=  render( partial: 'comments/comment', collection: @post.comments )  || "There are no comments." %>
     <!-- or you can write render partial: "comment", collection: @post.comments-->
   </div>
   <div class="span4">
