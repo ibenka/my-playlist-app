@@ -13,6 +13,7 @@ group :development do
   gem 'sqlite3'
   gem 'rspec-rails'
   gem 'factory_girl_rails', '~>4.0'
+  gem 'database_cleaner'
 end
 
 gem 'sass-rails', '~> 4.0.0'
