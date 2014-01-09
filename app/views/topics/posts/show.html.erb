@@ -32,8 +32,10 @@
     <hr />
     <h4> Comments </h4>
     <h5 class='js-comments-count'><%= @post.comments.count %> Comments</h5>
+    <div class="js-comments">
     <%=  render( partial: 'comments/comment', collection: @post.comments )  || "There are no comments." %>
     <!-- or you can write render partial: "comment", collection: @post.comments-->
+    </div>
   </div>
   <div class="span4">
     <% if can? :comment, @comment %>
