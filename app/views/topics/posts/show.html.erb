@@ -29,7 +29,9 @@
   <%= render partial: 'favorites/favorite', locals: { topic: @topic, post: @post } %>
   </br>
   <div class="span4">
+    <hr />
     <h4> Comments </h4>
+    <h5 class='js-comments-count'><%= @post.comments.count %> Comments</h5>
     <%=  render( partial: 'comments/comment', collection: @post.comments )  || "There are no comments." %>
     <!-- or you can write render partial: "comment", collection: @post.comments-->
   </div>
