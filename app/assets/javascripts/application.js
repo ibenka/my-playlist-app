@@ -29,6 +29,10 @@ SC.connect(function() {
   });
 });
 
+console.log("got here"):
+
+console.log("and here"):
+
 $(document).ready(function() {
   $(".js-show-hide").click(function() {
     var selector = "." + $(this).attr('data-selector');
@@ -40,15 +44,4 @@ $(document).ready(function() {
     }
     return false;
   });
-
-  SC.get('/playlists/d4rk_hau5', function(playlist) {
-  console.log("i work");
-    for (var i = 0; i < playlist.tracks.length; i++) {
-      var track_url = playlist.tracks[i][permalink_url]
-      $(.here-mang).append( SC.oEmbed(track_url, { auto_play: false }, function(oEmbed) {
-      console.log('oEmbed response: ' + oEmbed);
-      }));
-    }
-  });
-
 });
