@@ -34,7 +34,10 @@ console.log("got here"):
 SC.get('/playlists/d4rk_hau5', function(playlist) {
   console.log("i work");
   for (var i = 0; i < playlist.tracks.length; i++) {
-    console.log(playlist.tracks[i].length);
+    var track_url = playlist.tracks[i][permalink_url]
+    $(.here-mang).append( SC.oEmbed(track_url, { auto_play: false }, function(oEmbed) {
+    console.log('oEmbed response: ' + oEmbed);
+    }));
   }
 });
 

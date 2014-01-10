@@ -1,7 +1,7 @@
 <div class="hero-unit">
   <h1>Playlist Sequencer</h1>
   <p>Ever wanted to share a playlist in order from start to finish? Playlist Sequencer allows you to create a playlist that can be accessible to anyone with internet connection! Post, Favorite, and Comment with your friends and family</p>
-  <p>
+  <p class="here-mang">
       <% if current_user.nil? %>
       <%= link_to "Sign In", new_user_session_path, class: 'btn btn-primary btn-large' %> or 
       <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary btn-large' %> today!
