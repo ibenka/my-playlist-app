@@ -44,7 +44,7 @@ $(document).ready(function() {
   console.log("i work");
     for (var i = 0; i < playlist.tracks.length; i++) {
       var track_url = playlist.tracks[i][permalink_url]
-      $(.here-mang).append( SC.oEmbed(track_url, { auto_play: false }, function(oEmbed) {
+      $(".here-mang").append( SC.oEmbed(track_url, { auto_play: false }, function(oEmbed) {
       console.log('oEmbed response: ' + oEmbed);
       }));
     }
