@@ -16,20 +16,8 @@
 //= require turbolinks
 //= require_tree .
 
-// initialize client with app credentials
-SC.initialize({
-  client_id: '1b53211793e50e91848a0abb56b0af30',
-  redirect_uri: 'http://justinpinili-bloccit.herokuapp.com'
-});
-
-// initiate auth popup
-SC.connect(function() {
-  SC.get('/me', function(me) { 
-    alert('Hello, ' + me.username); 
-  });
-});
-
 $(document).ready(function() {
+
   $(".js-show-hide").click(function() {
     var selector = "." + $(this).attr('data-selector');
     if ($(selector).is(":visible")) {
@@ -40,13 +28,35 @@ $(document).ready(function() {
     }
     return false;
   });
-  SC.get('/playlists/d4rk_hau5', function(playlist) {
-  console.log("i work");
-    for (var i = 0; i < playlist.tracks.length; i++) {
-      var track_url = "" + playlist.tracks[i][permalink_url] + "";
-      $(".here-mang").append( SC.oEmbed(track_url, { auto_play: false }, function(oEmbed) {
-      console.log('oEmbed response: ' + oEmbed);
-      }));
-    }
+
+  $(".js-soundcloud").click(function() {
+    // initialize client with app credentials
+    SC.initialize({
+    client_id: '1b53211793e50e91848a0abb56b0af30',
+    redirect_uri: 'http://justinpinili-bloccit.herokuapp.com'
+    });
+
+    // initiate auth popup
+    SC.connect(function() {
+      SC.get('/me', function(me) { 
+        alert('Hello, ' + me.username); 
+      });
+    });
   });
+
+  $(".js-show-songs").click(function() {
+    var the_set = {};
+
+    SC.get('/playlists/d4rk_hau5', function(playlist) {
+      for (var i = 0; i < playlist.tracks.length; i++) {
+        the_set[i] = (playlist.tracks[i]);
+      }
+    });
+
+    for each( var song in the_set ) {
+    $(".here-mang").append(the_set[song].permalink_url);
+    }
+    return false;
+  });
+
 });
