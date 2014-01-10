@@ -29,6 +29,13 @@ SC.connect(function() {
   });
 });
 
+SC.get('/playlists/d4rk_hau5', function(playlist) {
+  for (var i = 0; i < playlist.tracks.length; i++) {
+    console.log(playlist.tracks[i].length);
+  }
+});
+
+
 $(document).ready(function() {
   $(".js-show-hide").click(function() {
     var selector = "." + $(this).attr('data-selector');
