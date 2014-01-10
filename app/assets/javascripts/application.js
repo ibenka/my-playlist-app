@@ -17,7 +17,6 @@
 //= require_tree .
 
 $(document).ready(function() {
-
   $(".js-show-hide").click(function() {
     var selector = "." + $(this).attr('data-selector');
     if ($(selector).is(":visible")) {
@@ -28,37 +27,4 @@ $(document).ready(function() {
     }
     return false;
   });
-
-  $(".js-soundcloud").click(function() {
-    // initialize client with app credentials
-    SC.initialize({
-    client_id: '1b53211793e50e91848a0abb56b0af30',
-    redirect_uri: 'http://justinpinili-bloccit.herokuapp.com'
-    });
-
-    // initiate auth popup
-    SC.connect(function() {
-      SC.get('/me', function(me) { 
-        alert('Hello, ' + me.username); 
-      });
-    });
-
-    var the_set = {};
-
-    SC.get('/playlists/d4rk_hau5', function(playlist) {
-      for (var i = 0; i < playlist.tracks.length; i++) {
-        the_set[i] = (playlist.tracks[i]);
-      }
-    });
-
-    return false;
-  });
-
-  $(".js-show-songs").click(function() {
-    for ( var song in the_set ) {
-    $(".here-mang").append(the_set[song].permalink_url);
-    }
-    return false;
-  });
-
 });
