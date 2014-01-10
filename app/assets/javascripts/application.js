@@ -42,6 +42,8 @@ $(document).ready(function() {
         alert('Hello, ' + me.username); 
       });
     });
+
+    return false;
   });
 
   $(".js-show-songs").click(function() {
