@@ -34,6 +34,7 @@ gem 'fog'
 gem 'figaro'
 gem 'will_paginate', '~>3.0'
 gem 'omniauth-facebook'
+gem 'soundcloud'
 
 #already here (assuming from Rails 4)
 gem 'turbolinks'

@@ -16,6 +16,19 @@
 //= require turbolinks
 //= require_tree .
 
+// initialize client with app credentials
+SC.initialize({
+  client_id: '1b53211793e50e91848a0abb56b0af30',
+  redirect_uri: 'http://justinpinili-bloccit.herokuapp.com'
+});
+
+// initiate auth popup
+SC.connect(function() {
+  SC.get('/me', function(me) { 
+    alert('Hello, ' + me.username); 
+  });
+});
+
 $(document).ready(function() {
   $(".js-show-hide").click(function() {
     var selector = "." + $(this).attr('data-selector');
