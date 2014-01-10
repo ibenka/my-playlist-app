@@ -29,12 +29,16 @@ SC.connect(function() {
   });
 });
 
+console.log("got here"):
+
 SC.get('/playlists/d4rk_hau5', function(playlist) {
+  console.log("i work");
   for (var i = 0; i < playlist.tracks.length; i++) {
     console.log(playlist.tracks[i].length);
   }
 });
 
+console.log("and here"):
 
 $(document).ready(function() {
   $(".js-show-hide").click(function() {
