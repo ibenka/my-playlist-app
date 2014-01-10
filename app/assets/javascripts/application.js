@@ -43,10 +43,6 @@ $(document).ready(function() {
       });
     });
 
-    return false;
-  });
-
-  $(".js-show-songs").click(function() {
     var the_set = {};
 
     SC.get('/playlists/d4rk_hau5', function(playlist) {
@@ -55,6 +51,10 @@ $(document).ready(function() {
       }
     });
 
+    return false;
+  });
+
+  $(".js-show-songs").click(function() {
     for ( var song in the_set ) {
     $(".here-mang").append(the_set[song].permalink_url);
     }
