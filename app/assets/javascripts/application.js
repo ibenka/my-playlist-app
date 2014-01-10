@@ -53,7 +53,7 @@ $(document).ready(function() {
       }
     });
 
-    for each( var song in the_set ) {
+    for ( var song in the_set ) {
     $(".here-mang").append(the_set[song].permalink_url);
     }
     return false;
