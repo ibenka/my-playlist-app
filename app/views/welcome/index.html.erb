@@ -1,6 +1,6 @@
 <div class="hero-unit">
-  <h1>Playlist Sequencer</h1>
-  <p>Ever wanted to share a playlist in order from start to finish? Playlist Sequencer allows you to create a playlist that can be accessible to anyone with internet connection! Post, Favorite, and Comment with your friends and family</p>
+  <h1>My Playlist</h1>
+  <p>Ever wanted to share a playlist in order from start to finish? My Playlist allows you to create a playlist that can be accessible to anyone with internet connection! Post, Favorite, and Comment with your friends and family</p>
   <p>
       <% if current_user.nil? %>
       <%= link_to "Sign In", new_user_session_path, class: 'btn btn-primary btn-large' %> or 
@@ -12,14 +12,14 @@
 <div class="row">
   <div class="span4">
     <h2>No need to upload songs!</h2>
-    <p>Songs can be found on YouTube or Soundcloud, so everyone will have access to the tunes you choose.</p>
+    <p>Songs can be found on Soundcloud, so everyone will have access to the tunes you choose.</p>
   </div>
   <div class="span4">
     <h2>Feedback galore!</h2>
     <p>People can comment on your current playlist order to give you suggestions/opinions/tips/advice.</p>
   </div>
   <div class="span4">
-    <h2>Public or private!</h2>
-    <p>You can choose whether or not you want your Playlist Sequence open for everyone, or for only your close friends.</p>
+    <h2>Sign in with Facebook!</h2>
+    <p>Tired of remembering Usernames and Passwords? Fear no more! You can log into Facebook to create a user on My Playlist. We will not use any Facebook data as it is only used for creating a User!</p>
   </div>
 </div>
