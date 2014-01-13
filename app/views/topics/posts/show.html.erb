@@ -18,23 +18,23 @@
     <p><%= image_tag(@post.image.url) if @post.image? %></p>
     <p><%= markdown @post.body %></p>
 
+    <% unless @post.playlists.count == 0 %>
     <div class='soundcloud'>
-    <% @playlist.each do |song| %>
-
-      <% begin %>
-      <% embed_info = @client.get('/oembed', :url => song.url) %>
-      <% rescue Soundcloud::ResponseError => e%>
-        <%=  "Invalid Entry - Not a Valid Soundcloud URL" %>
+      <% @playlist.each do |song| %>
+        <% begin %>
+        <% embed_info = @client.get('/oembed', :url => song.url) %>
+        <% rescue Soundcloud::ResponseError => e%>
+          <%=  "Invalid Entry - Not a Valid Soundcloud URL" %>
+        <% end %>
+        <% if embed_info %>
+        <%= embed_info['html'].html_safe %>
+        <% end %>
+        <br />
+        <%= link_to "Edit Entry", edit_topic_post_playlist_path(@topic, @post, song[:id]), class: 'btn btn-large btn-primary' %>
+        <br />
       <% end %>
-      <% if embed_info %>
-      <%= embed_info['html'].html_safe %>
-      <% end %>
-      <br />
-      <%= link_to "Edit Entry", edit_topic_post_playlist_path(@topic, @post, song[:id]), class: 'btn btn-large btn-primary' %>
-      <br />
-
-    <% end %>
     </div>
+    <% end %>
     <br />
 
     <%= link_to "Add Song", new_topic_post_playlist_path(@topic, @post), class: 'btn btn-large btn-primary' %>
