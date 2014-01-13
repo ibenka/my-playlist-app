@@ -1,0 +1,24 @@
+<%= form_for [topic, post, playlist], html: { class: 'form-horizontal' } do |f| %>
+  <% if playlist.errors.any? %>
+    <div class="alert alert-block">
+      <h4>There are <%= pluralize(playlist.errors.count, "error") %>.</h4>
+      <ul>
+        <% playlist.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= control_group_tag(playlist.errors[:url]) do %>
+    <%= f.label :url, class: 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :url %>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <div class="controls">
+      <%= f.submit "Save", class: 'btn btn-info' %>
+    </div>
+  </div>
+<% end %>

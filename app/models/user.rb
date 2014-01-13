@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :votes, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :playlists
   before_create :set_member
   accepts_nested_attributes_for :posts
   mount_uploader :avatar, AvatarUploader
@@ -12,6 +13,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, 
          :omniauthable, :omniauth_providers => [:facebook]
+
+  #going to be the same for all Users
+  SOUNDCLOUD_CLIENT_ID     = "1b53211793e50e91848a0abb56b0af30"
+  SOUNDCLOUD_CLIENT_SECRET = "c7d8e92f66df1a97a12cd52b681f67a5"
 
   def favorited(post)
     self.favorites.where(post_id: post.id).first
@@ -52,6 +57,15 @@ class User < ActiveRecord::Base
   ROLES = %w[member moderator admin]
   def role?(base_role)
     role.nil? ? false : ROLES.index(base_role.to_s) <= ROLES.index(role)
+  end
+
+  def self.soundcloud_client(options={})
+    options = {
+      :client_id     => SOUNDCLOUD_CLIENT_ID,
+      :client_secret => SOUNDCLOUD_CLIENT_SECRET,
+    }.merge(options)
+
+    Soundcloud.new(options)
   end
 
   private

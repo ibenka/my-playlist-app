@@ -4,7 +4,10 @@ class Topics::PostsController < ApplicationController
     @topic = Topic.find(params[:topic_id])
     authorize! :read, @topic, message: "You need to be signed-in to do that."
     @post = Post.find(params[:id])
+    @playlist = @post.playlists
     @comment = Comment.new
+
+    @client = soundcloud_client
   end
 
   def new
@@ -70,5 +73,15 @@ class Topics::PostsController < ApplicationController
       user_attributes: [:avatar], 
       comments_attributes: [:body],
       votes_attributes: [:value, :post_id])
+  end
+
+  def soundcloud_client
+    #returns existing client if it exist
+    return @soundcloud_client if @soundcloud_client
+
+    #if not, create a soundcloud client from the User's method
+    #since it doesn't matter what specific user, just using the 
+    #User model
+    @soundcloud_client = User.soundcloud_client(:redirect_uri  => soundcloud_connected_url)
   end
 end

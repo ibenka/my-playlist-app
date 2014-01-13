@@ -35,6 +35,7 @@ gem 'figaro'
 gem 'will_paginate', '~>3.0'
 gem 'omniauth-facebook'
 gem 'soundcloud'
+gem 'validate_url'
 
 #already here (assuming from Rails 4)
 gem 'turbolinks'
