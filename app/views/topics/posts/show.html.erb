@@ -19,7 +19,7 @@
     <p><%= markdown @post.body %></p>
 
     <% unless @post.playlists.count == 0 %>
-    <div class='soundcloud'>
+    <div>
       <% @playlist.each do |song| %>
         <% begin %>
         <% embed_info = @client.get('/oembed', :url => song.url) %>
@@ -50,16 +50,7 @@
   </div>
   <%= render partial: 'favorites/favorite', locals: { topic: @topic, post: @post } %>
   </br>
-  <div class="span4">
-    <hr />
-    <h4> Comments </h4>
-    <h5 class='js-comments-count'><%= @post.comments.count %> Comments</h5>
-    <div class="js-comments">
-    <%=  render( partial: 'comments/comment', collection: @post.comments )  || "There are no comments." %>
-    <!-- or you can write render partial: "comment", collection: @post.comments-->
-    </div>
-  </div>
-  <div class="span4">
+    <div class="span4">
     <% if can? :comment, @comment %>
     <hr />
     <a href="#" class="js-show-hide" data-selector="js-new-comment">Add Comment</a>
@@ -68,5 +59,13 @@
       <%= render partial: "comments/form", locals: { topic: @topic, post: @post, comment: @comment } %>
     </div>
     <% end %>
+  </div>
+  <div class="span4">
+    <hr />
+    <h4> Comments </h4>
+    <h5 class='js-comments-count'><%= @post.comments.count %> Comments</h5>
+    <div class="js-comments">
+    <%=  render partial: 'comments/comment', collection: @post.comments %>
+    </div>
   </div>
 </div>
