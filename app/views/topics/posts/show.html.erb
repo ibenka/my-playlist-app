@@ -28,6 +28,7 @@
     <p><%= image_tag(@post.image.url) if @post.image? %></p>
     <p><%= markdown @post.body %></p>
 
+    <hr />
     <div class="js-songs">
       <%=  render partial: 'playlists/playlist', collection: @playlists %>
     </div>
