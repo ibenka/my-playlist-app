@@ -5,4 +5,6 @@ class Playlist < ActiveRecord::Base
 
   validates :url, :url => true
   validates :user, presence: true
+
+  default_scope order('updated_at DESC')
 end
