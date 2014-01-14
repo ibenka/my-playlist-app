@@ -82,6 +82,6 @@ class Topics::PostsController < ApplicationController
     #if not, create a soundcloud client from the User's method
     #since it doesn't matter what specific user, just using the 
     #User model
-    @soundcloud_client = User.soundcloud_client(:redirect_uri  => soundcloud_connected_url)
+    @soundcloud_client = User.soundcloud_client()
   end
 end

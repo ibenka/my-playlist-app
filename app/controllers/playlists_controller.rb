@@ -46,6 +46,20 @@ class PlaylistsController < ApplicationController
     end
   end
 
+  def destroy
+    @topic = Topic.find(params[:topic_id])
+    @post = Post.find(params[:id])
+    @playlist = Playlist.find(params[:id])
+    #authorize! :destroy, @post, message: "You need to own the post to delete it."
+    if @post.destroy
+      flash[:notice] = "The song was deleted successfully."
+      redirect_to [@topic, @playlist.post]
+    else
+      flash[:error] = "There was an error deleting the song."
+      render :show
+    end
+  end
+
   def playlist_params
     params.require(:playlist).permit(:url, :order, :topic_id, :post_id,
       post_attributes: [:title, :body, :image],
