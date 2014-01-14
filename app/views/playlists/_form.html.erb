@@ -1,4 +1,4 @@
-<%= form_for [topic, post, playlist], html: { class: 'form-horizontal' } do |f| %>
+<%= form_for [topic, post, playlist], remote: true, html: { class: 'form-horizontal' } do |f| %>
   <% if playlist.errors.any? %>
     <div class="alert alert-block">
       <h4>There are <%= pluralize(playlist.errors.count, "error") %>.</h4>

@@ -1,7 +1,7 @@
 <h1>Edit Song</h1>
 <div class="row">
   <div class="span4">
-    <%= link_to "Delete Song", @playlist, method: :delete, class: 'btn btn-large btn-danger', confirm: 'Are you sure you want to delete this song?' %>
+    <%= link_to "Delete Song", [@topic, @post, @playlist], method: :delete, class: 'btn btn-large btn-danger', confirm: 'Are you sure you want to delete this song?' %>
     <p>Guidelines for editing:</p>
     <ul>
       <li>Make sure the URL is a valid Soundcloud URL</li>
