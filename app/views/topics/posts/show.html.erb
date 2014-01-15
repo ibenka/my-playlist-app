@@ -1,8 +1,9 @@
 <div class="row">
   <h1><%= markdown @post.title %></h1>
   <div class="col-xs-8 col-sm-8 col-md-8">
+    <div>
     <small>
-      by <%= @post.user.name %>
+      <%= image_tag(@post.user.avatar.small.url) if @post.user.avatar? %> by <%= @post.user.name %>
 
       <% if can? :edit, @post %>
         <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-mini' %>
@@ -11,8 +12,11 @@
         <%= link_to "Delete Post", [@topic, @post], method: :delete, class: 'btn btn-large btn-danger', confirm: 'Are you sure you want to delete this post?' %>
       <% end %>
     </small>
+    </div>
 
-    <p><%= image_tag(@post.image.thumb.url) if @post.image? %></p>
+    <div class="mobile-image">
+    <p><%= image_tag(@post.image.mobile.url) if @post.image? %></p>
+    </div>
     <p><%= markdown @post.body %></p>
 
     <a href="#" class="js-show-hide btn btn-large btn-primary" data-selector="js-add-song">Add Song</a>
@@ -36,7 +40,7 @@
 
 <div class="row">
   <div class="js-songs col-xs-12 col-sm-8 col-md-8">
-    <%=  render partial: 'playlists/playlist', collection: @playlists %>
+
   </div>
 
 
