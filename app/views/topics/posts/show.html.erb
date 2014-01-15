@@ -1,21 +1,8 @@
-<div class="pull-right">
-    <%= render partial: 'votes/voter', locals: { topic: @topic, post: @post } %>
-    <h3><%= pluralize(@post.points, 'point') %></h3>
-    <small>
-      <%= pluralize(@post.up_votes, 'up vote') %>, 
-      <%= pluralize(@post.down_votes, 'down vote') %>
-    </small>
-    <%= render partial: 'favorites/favorite', locals: { topic: @topic, post: @post } %>
-</div>
-
-<h1><%= markdown @post.title %></h1>
-
 <div class="row">
-  <div class="col-xs-12 col-md-8">
+  <h1><%= markdown @post.title %></h1>
+  <div class="col-xs-8 col-sm-8 col-md-8">
     <small>
-      <%= image_tag(@post.user.avatar.small.url) if @post.user.avatar? %>
-      submitted <%= time_ago_in_words(@post.created_at) %> ago by 
-      <%= @post.user.name %>
+      by <%= @post.user.name %>
 
       <% if can? :edit, @post %>
         <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-mini' %>
@@ -32,6 +19,15 @@
     <div class="js-add-song">
       <%= render partial: "playlists/form", locals: { topic: @topic, post: @post, playlist: @song } %>
     </div>
+  </div>
+  <div class="col-xs-4 col-sm-4 col-md-4">
+    <%= render partial: 'votes/voter', locals: { topic: @topic, post: @post } %>
+    <h3><%= pluralize(@post.points, 'point') %></h3>
+    <small>
+      <%= pluralize(@post.up_votes, 'up vote') %>, 
+      <%= pluralize(@post.down_votes, 'down vote') %>
+    </small>
+    <%= render partial: 'favorites/favorite', locals: { topic: @topic, post: @post } %>
   </div>
 </div>
 

@@ -9,7 +9,8 @@
       <%= embed_info['html'].html_safe %>
     <% end %>
     <br />
-    <%= link_to "Edit Song", edit_topic_post_playlist_path(@topic, @post, playlist[:id]), class: 'btn btn-large' %>
+    <%= link_to edit_topic_post_playlist_path(@topic, @post, playlist[:id]), class: 'btn btn-small' do %>
+            <i class="glyphicon glyphicon-wrench"> </i> <% end %>
     <%= image_tag(@post.user.avatar.small.url) if @post.user.avatar? %>
       submitted <%= time_ago_in_words(playlist.created_at) %> ago by 
     <%= playlist.user.name %>
