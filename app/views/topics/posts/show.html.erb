@@ -12,7 +12,7 @@
       <% end %>
     </small>
 
-    <p><%= image_tag(@post.image.url) if @post.image? %></p>
+    <p><%= image_tag(@post.image.thumb.url) if @post.image? %></p>
     <p><%= markdown @post.body %></p>
 
     <a href="#" class="js-show-hide btn btn-large btn-primary" data-selector="js-add-song">Add Song</a>
