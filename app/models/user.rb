@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
   SOUNDCLOUD_CLIENT_ID     = "1b53211793e50e91848a0abb56b0af30"
   SOUNDCLOUD_CLIENT_SECRET = "c7d8e92f66df1a97a12cd52b681f67a5"
 
+  validates :name, length: { maximum: 15 }, presence: true
+
   def favorited(post)
     self.favorites.where(post_id: post.id).first
   end
