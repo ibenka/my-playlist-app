@@ -13,8 +13,7 @@
     <%= link_to edit_topic_post_playlist_path(@topic, @post, playlist[:id]), class: 'btn btn-small' do %>
             <i class="glyphicon glyphicon-wrench"> </i> <% end %>
     <%= image_tag(@post.user.avatar.small.url) if @post.user.avatar? %>
-      added <%= time_ago_in_words(playlist.created_at) %> ago by 
-    <%= playlist.user.name %>
+      added by <%= playlist.user.name %>
     </small>
   </div>
 <% end %>

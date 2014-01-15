@@ -1,24 +1,27 @@
 <div class="hero-unit">
   <h1>My Playlist</h1>
-  <p>Ever wanted to share a playlist in order from start to finish? My Playlist allows you to create a playlist that can be accessible to anyone with internet connection! Post, Favorite, and Comment with your friends and family</p>
-  <p>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+    <p>Ever wanted to share a playlist in order from start to finish? My Playlist allows you to create a playlist that can be accessible to anyone with internet connection! Post, Favorite, and Comment with your friends and family</p>
+    <p>
       <% if current_user.nil? %>
       <%= link_to "Sign In", new_user_session_path, class: 'btn btn-primary btn-large' %> or 
       <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary btn-large' %> today!
       <% end %>
-  </p>
+    </p>
+  </div>
 </div>
 
 <div class="row">
-  <div class="span4">
+  <div class="col-xs-12 col-sm-4 col-md-4">
     <h2>No need to upload songs!</h2>
     <p>Songs can be found on Soundcloud, so everyone will have access to the tunes you choose.</p>
   </div>
-  <div class="span4">
+  <div class="col-xs-12 col-sm-4 col-md-4">
     <h2>Feedback galore!</h2>
-    <p>People can comment on your current playlist order to give you suggestions/opinions/tips/advice.</p>
+    <p>People can comment on your current playlist order to give you suggestions / opinions / tips / advice.</p>
   </div>
-  <div class="span4">
+  <div class="col-xs-12 col-sm-4 col-md-4">
     <h2>Sign in with Facebook!</h2>
     <p>Tired of remembering Usernames and Passwords? Fear no more! You can log into Facebook to create a user on My Playlist. We will not use any Facebook data as it is only used for creating a User!</p>
   </div>

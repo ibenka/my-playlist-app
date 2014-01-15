@@ -10,7 +10,7 @@
     </div>
   <% end %>
   <%= control_group_tag(playlist.errors[:url]) do %>
-    <%= f.label :url, class: 'control-label' %>
+    <%= f.label :url, class: 'control-label' %> (Must be a SoundCloud URL)
     <div class="controls">
       <%= f.text_field :url %>
     </div>

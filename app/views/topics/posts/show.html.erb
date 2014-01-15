@@ -24,7 +24,8 @@
     <%= render partial: 'votes/voter', locals: { topic: @topic, post: @post } %>
     <h3><%= pluralize(@post.points, 'point') %></h3>
     <small>
-      <%= pluralize(@post.up_votes, 'up vote') %>, 
+      <%= pluralize(@post.up_votes, 'up vote') %>
+      <br /> 
       <%= pluralize(@post.down_votes, 'down vote') %>
     </small>
     <%= render partial: 'favorites/favorite', locals: { topic: @topic, post: @post } %>
@@ -35,7 +36,7 @@
 
 <div class="row">
   <div class="js-songs col-xs-12 col-sm-8 col-md-8">
-    <%=  render partial: 'playlists/playlist', collection: @playlists %>
+    
   </div>
 
 
