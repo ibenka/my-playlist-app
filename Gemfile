@@ -33,7 +33,7 @@ gem 'mini_magick'
 gem 'fog'
 gem 'figaro'
 gem 'will_paginate', '~>3.0'
-gem 'omniauth-facebook'
+gem 'omniauth-facebook', '1.4.0'
 gem 'soundcloud'
 gem 'jquery-turbolinks'
 
