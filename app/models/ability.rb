@@ -31,7 +31,6 @@ class Ability
         can :destroy, Post
         can :destroy, Comment
         can :destroy, Playlist
-        can :manage, Topic
     end
 
     if user.role? :admin
