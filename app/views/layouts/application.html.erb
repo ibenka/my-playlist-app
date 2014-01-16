@@ -49,11 +49,34 @@
       <% end %>
       <%= yield %>
       <hr />
-      <div class="pull-right">
-        <small>
-          | <%= link_to "Users", users_path %> | 
-          <%= link_to "About", about_path %> |
-        </small>
+      <div style="margin-left: -20px" class="row">
+        <div class="col-xs-8 col-sm-8 col-md-8">
+          <small>
+            <a href="#" class="js-show-hide" data-selector="js-guidelines"> Guidelines for Adding Songs</a>
+            <div class="js-guidelines">
+              - Make sure the URL is a valid YouTube or Soundcloud URL.</li> <br />
+              - If it is a YouTube URL, on the youtube webpage <b>make sure to use the <em>embed</em> URL.</b><br />  
+              <hr />
+              <h5> YouTube Example: </h5>
+              <hr />
+              <img src="http://oi43.tinypic.com/2j1wwg8.jpg"/> <br />
+              <%= '<iframe width="560" height="315" src="' %><b><%= '//www.youtube.com/embed/2Jgar3X0A0s' %></b><%='" frameborder="0" allowfullscreen></iframe>"' %> <br />
+              <br />
+              Copy & Paste the URL listed in <em><b> bold </b></em> above. 
+              <hr />
+            </div>
+          </small>
+        </div>
+        <div class="col-xs-2 col-sm-2 col-md-2">
+          <small>
+            <%= link_to "Users", users_path %> 
+          </small>
+        </div>
+        <div class="col-xs-2 col-sm-2 col-md-2">
+          <small>
+            <%= link_to "About", about_path %>
+          </small>
+        </div>
       </div>
     </div>
   </body>

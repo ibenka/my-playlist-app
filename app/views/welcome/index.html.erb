@@ -2,7 +2,7 @@
   <h1>My Playlist</h1>
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
-    <p>Ever wanted to share a playlist in order from start to finish? My Playlist allows you to create a playlist that can be accessible to anyone with internet connection! Post, Favorite, and Comment with your friends and family</p>
+    <p>Ever wanted to share and collaborate on a playlist? My Playlist allows you to create a playlist that can be accessible to anyone with internet connection! Post, Favorite, and Comment with your friends and family</p>
     <p>
       <% if current_user.nil? %>
       <%= link_to "Sign In", new_user_session_path, class: 'btn btn-primary btn-large' %> or 
@@ -14,8 +14,8 @@
 
 <div class="row">
   <div class="col-xs-12 col-sm-4 col-md-4">
-    <h2>No need to upload songs!</h2>
-    <p>Songs can be found on Soundcloud, so everyone will have access to the tunes you choose.</p>
+    <h2>Add Songs!</h2>
+    <p>Want to contribute to a particular Playlist? As long as you are a member, you can add songs no problem. Songs can be found on YouTube or Soundcloud, so everyone will have access to the tunes you choose.</p>
   </div>
   <div class="col-xs-12 col-sm-4 col-md-4">
     <h2>Feedback galore!</h2>
@@ -24,5 +24,19 @@
   <div class="col-xs-12 col-sm-4 col-md-4">
     <h2>Sign in with Facebook!</h2>
     <p>Tired of remembering Usernames and Passwords? Fear no more! You can log into Facebook to create a user on My Playlist. We will not use any Facebook data as it is only used for creating a User!</p>
+  </div>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-4 col-md-4">
+    <h2>Favorite a Playlist!</h2>
+    <p>When you Favorite a Playlist, you will receive an e-mail whenever it is updated with a Comment.</p>
+  </div>
+  <div class="col-xs-12 col-sm-4 col-md-4">
+    <h2>Mobile & Tablet Friendly!</h2>
+    <p>Want to access the website on your phone or tablet? On My Playlist, all devices are compatible. If you are not connected via WiFi know that you <b>will</b> be using cellular data.</p>
+  </div>
+  <div class="col-xs-12 col-sm-4 col-md-4">
+    <h2>Image Upload!</h2>
+    <p>Want upload images to your User Profile or Playlist? With My Playlist, image uploading is on the house.</p>
   </div>
 </div>

@@ -8,21 +8,29 @@ class Ability
         #can :manage, Post, user_id: user.id
         #can :manage, Comment, user_id: user.id
 
-        can :create, Post
+        #can :create, Post
         can :create, Comment
         can :comment, Comment
-        can :update, Post, user_id: user.id
+        #can :update, Post, user_id: user.id
         can :destroy, Comment, user_id: user.id
         can :destroy, Post, user_id: user.id
         can :create, Vote
         can :create, Favorite, user_id: user.id
         can :destroy, Favorite, user_id: user.id
         can :read, Topic
+
+        can :create, Playlist
+        can :update, Playlist, user_id: user.id
+        can :destroy, Playlist, user_id: user.id
     end
 
     if user.role? :moderator
+        can :create, Post
+        can :update, Post, user_id: user.id
+        can :update, Playlist
         can :destroy, Post
         can :destroy, Comment
+        can :destroy, Playlist
         can :manage, Topic
     end
 
