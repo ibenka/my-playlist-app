@@ -7,9 +7,9 @@ class FavoriteMailer < ActionMailer::Base
     @comment = comment
 
     # New Headers
-    headers["Message-ID"] = "<comments/#{@comment.id}@justinpinili-bloccit.herokuapp.com>"
-    headers["In-Reply-To"] = "<post/#{@post.id}@justinpinili-bloccit.herokuapp.com>"
-    headers["References"] = "<post/#{@post.id}@justinpinili-bloccit.herokuapp.com>"
+    headers["Message-ID"] = "<comments/#{@comment.id}@my-playlist-app.herokuapp.com>"
+    headers["In-Reply-To"] = "<post/#{@post.id}@my-playlist-app.herokuapp.com>"
+    headers["References"] = "<post/#{@post.id}@my-playlist-app.herokuapp.com>"
 
     mail(to: user.email, subject: "New comment on #{post.title}")
   end
