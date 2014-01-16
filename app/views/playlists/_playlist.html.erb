@@ -1,14 +1,20 @@
 <%= content_tag :div, class: 'media', id: "playlist-#{playlist.id}" do %>
   <div class="media-body">
-    <% begin %>
-        <% embed_info = @client.get('/oembed', :url => playlist.url) %>
-    <% rescue Soundcloud::ResponseError => e%>
+    <% if playlist.url[0..1] == "//" %>
+      <div class="flex-video widescreen"><iframe src="<%= playlist.url %>" frameborder="0" allowfullscreen=""></iframe></div>
+    <% elsif playlist.url[0..1] == "ht" %>
+      <% begin %>
+          <% embed_info = @client.get('/oembed', :url => playlist.url) %>
+      <% rescue Soundcloud::ResponseError => e%>
           <%=  "Invalid Entry - Not a Valid Soundcloud URL" %>
+      <% end %>
+      <% if embed_info %>
+        <%= embed_info['html'].html_safe %>
+      <% end %>
+    <% else %>
+      <%= "Invalid Entry - Not a Valid URL" %>
+      <br />
     <% end %>
-    <% if embed_info %>
-      <%= embed_info['html'].html_safe %>
-    <% end %>
-    <br />
     <small>
     <%= link_to edit_topic_post_playlist_path(@topic, @post, playlist[:id]), class: 'btn btn-small' do %>
             <i class="glyphicon glyphicon-wrench"> </i> <% end %>
