@@ -12,7 +12,7 @@ module ApplicationHelper
     renderer = Redcarpet::Render::HTML.new
     extensions = {fenced_code_blocks: true}
     redcarpet = Redcarpet::Markdown.new(renderer, extensions)
-    (redcarpet.render text).html_safe
+    (redcarpet.render html_escape(text)).html_safe
   end
 
   def will_paginate(collection_or_options = nil, options = {})
