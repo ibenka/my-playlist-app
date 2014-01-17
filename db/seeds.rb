@@ -12,7 +12,7 @@ rand(4..10).times do
   password = Faker::Lorem.characters(10)
   u = User.new(
     name: Faker::Name.name, 
-    email: Faker::Internet.email, 
+    email: "#{Faker::Internet.email}#{rand}", 
     password: password, 
     password_confirmation: password)
   u.skip_confirmation!
