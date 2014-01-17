@@ -18,7 +18,7 @@
     <small>
     <%= link_to edit_topic_post_playlist_path(@topic, @post, playlist[:id]), class: 'btn btn-small' do %>
             <i class="glyphicon glyphicon-wrench"> </i> <% end %>
-    <%= image_tag(@playlist.user.avatar.small.url) if @post.user.avatar? %>
+    <%= image_tag(playlist.user.avatar.small.url) if @post.user.avatar? %>
       added by <%= playlist.user.name %>
     </small>
   </div>
