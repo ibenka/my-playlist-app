@@ -19,7 +19,7 @@
     </div>
     <p><%= markdown @post.body %></p>
 
-    <% if can? :create, @playlist %>
+    <% if can? :create, @song %>
     <a href="#" class="js-show-hide btn btn-large btn-primary" data-selector="js-add-song">Add Song</a>
     <div class="js-add-song">
       <%= render partial: "playlists/form", locals: { topic: @topic, post: @post, playlist: @song } %>
